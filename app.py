@@ -12,3 +12,6 @@ def index():
     if request.method == "POST": phrase = random.choice(PHRASES[category])
     return render_template("index.html", categories=PHRASES, category=category, phrase=phrase)
 if __name__ == "__main__": app.run(debug=True)
+PHRASES = json.loads(
+    Path(__file__).with_name("phrases.json").read_text(encoding="utf-8")
+)
